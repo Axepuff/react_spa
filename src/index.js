@@ -1,7 +1,7 @@
 import React from 'react'
 import {render} from 'react-dom'
-import Point from './components/Point/Point'
+import PointList from './components/PointList/PointList'
 import {data} from './data'
 
 
-render(<Point point = {data}/>, document.getElementById('container'))
+render(<PointList points = {data}/>, document.getElementById('container'))

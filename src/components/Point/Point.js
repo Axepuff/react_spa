@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
 
-function HelloWorld() {
-  return <h1>Hello</h1>
-}
-
 class Point extends Component {
   constructor(props) {
     super (props)
