@@ -1,22 +1,23 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import Opener from '../../decorators/opener'
 import './Point.css'
 
 class Point extends Component {
-  constructor(props) {
-    super (props)
-
-    this.state = {
-      isOpen: false
-    }
+  proptypes = {
+    point: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired
+    }).isRequired
   }
 
   render () {
-    const {point} = this.props
-    const {isOpen} = this.state
+    const {point, isOpen} = this.props
     // const name = point.name
     // const coord = point.coord
     return (
-      <div className='point'>
+      <div className='point' ref = {this.setPointRef}>
         <div className='point__main'>
           <span className='point__name'>{point.name}</span>
           <span className='point__address'>{point.address}</span>
@@ -29,19 +30,19 @@ class Point extends Component {
     )
   }
 
+  setPointRef = ref => {
+    this.pointView = ref
+  }
+
+  // componentDidMount() {
+  //   console.log('---', this.pointView)
+  // }
+
   getBody () {
-    if (!this.state.isOpen) {return null}
+    if (!this.props.isOpen) {return null}
     const {point} = this.props
     return <div className='point__detail'>{point.details}</div>
   }
-
-  toggleOpen = (event) => {
-    event.preventDefault()
-
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
-  }
 }
 
-export default Point
+export default Opener(Point)
