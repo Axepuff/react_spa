@@ -8,20 +8,20 @@ class Point extends Component {
     point: PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      address: PropTypes.string.isRequired
+      address: PropTypes.string.isRequired,
+      details: PropTypes.string
     }).isRequired
   }
 
   render () {
-    const {point, isOpen} = this.props
-    // const name = point.name
-    // const coord = point.coord
+    const {point, isOpen, toggleOpen} = this.props
+
     return (
       <div className='point' ref = {this.setPointRef}>
         <div className='point__main'>
           <span className='point__name'>{point.name}</span>
           <span className='point__address'>{point.address}</span>
-          <button  className='point__button' onClick = {this.toggleOpen}>
+          <button  className='point__button' onClick = {toggleOpen}>
             {isOpen ? '–' : '+'}
           </button>
         </div>
@@ -45,4 +45,4 @@ class Point extends Component {
   }
 }
 
-export default Opener(Point)
+export default Point
