@@ -27,8 +27,14 @@ class Point extends Component {
             {isOpen ? '–' : '+'}
           </button>
         </div>
-
-          {this.getBody()}
+        <CSSTransition
+          in = {this.props.isOpen}
+          key = {point.id}
+          timeout = {300}
+          appear
+          classNames = 'fade'>
+            <div>{this.getBody()}</div>
+          </CSSTransition>
       </div>
     )
   }
@@ -44,17 +50,8 @@ class Point extends Component {
   getBody () {
     if (!this.props.isOpen) {return null}
     const {point} = this.props
-    return <CSSTransition
-      in = {this.props.isOpen}
-      key={point.id}
-      timeout={{
-        enter: 500,
-        exit: 500,
-       }}
-      unmountOnExit
-      classNames = 'fade'>
-        <div className='point__detail'>{point.details}</div>
-    </CSSTransition>
+    return <div className='point__detail'>{point.details}</div>
+
   }
 }
 
