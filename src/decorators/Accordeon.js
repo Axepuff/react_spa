@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 export default (Original) => class Accordeon extends Component {
   state = {
-    openPointId: null
+    openId: null
   }
 
   render() {
@@ -11,13 +11,13 @@ export default (Original) => class Accordeon extends Component {
 
   toggleItem = PointId => ev => {
     ev && ev.preventDefault && ev.preventDefault()
-    if (this.state.openPointId === PointId) {
+    if (this.state.openId === PointId) {
       this.setState({
-        openPointId: null
+        openId: null
       })
     } else {
       this.setState({
-        openPointId: PointId
+        openId: PointId
       })
     }
   }

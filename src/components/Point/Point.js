@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Opener from '../../decorators/opener'
+import { CSSTransition } from 'react-transition-group'
 import './Point.css'
 
 class Point extends Component {
-  proptypes = {
+  static propTypes = {
     point: PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,
       details: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    isOpen: PropTypes.bool,
+    toggleOpen: PropTypes.func
   }
 
   render () {
@@ -25,7 +27,8 @@ class Point extends Component {
             {isOpen ? '–' : '+'}
           </button>
         </div>
-        {this.getBody()}
+
+          {this.getBody()}
       </div>
     )
   }
@@ -41,7 +44,17 @@ class Point extends Component {
   getBody () {
     if (!this.props.isOpen) {return null}
     const {point} = this.props
-    return <div className='point__detail'>{point.details}</div>
+    return <CSSTransition
+      in = {this.props.isOpen}
+      key={point.id}
+      timeout={{
+        enter: 500,
+        exit: 500,
+       }}
+      unmountOnExit
+      classNames = 'fade'>
+        <div className='point__detail'>{point.details}</div>
+    </CSSTransition>
   }
 }
 

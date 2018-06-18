@@ -13,29 +13,29 @@ class PointList  extends Component {
           address: PropTypes.string.isRequired,
           details: PropTypes.string
         }).isRequired
-      ) 
-
+      ),
+      openId: PropTypes.string
   }
 
   render () {
     const pointsElements = this.props.points.map(el => 
-      <Point 
-        key = {el.id}
-        point = {el}
-        isOpen = {el.id === this.props.accordeon.openPointId}
-        toggleOpen = {this.props.accordeon.toggleItem(el.id)}
-      />
+        <Point 
+          key = {el.id}
+          point = {el}
+          isOpen = {el.id === this.props.accordeon.openId}
+          toggleOpen = {this.props.accordeon.toggleItem(el.id)}
+        />
     )
     
     return (
       <div className = 'point-list'>
-        {pointsElements}
+          {pointsElements}
       </div>
     )
   }
 
-  toggleItem = (openPointId) => ev => {
-    this.setState({openPointId})
+  toggleItem = (openId) => ev => {
+    this.setState({openId})
   }
 }
 
