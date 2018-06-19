@@ -1,7 +1,5 @@
 import React from 'react'
 import {render} from 'react-dom'
-import PointList from './components/PointList/PointList'
-import {data} from './data'
+import App from './App'
 
-
-render(<PointList points = {data}/>, document.getElementById('container'))
+render(<App/>, document.getElementById('root'))
