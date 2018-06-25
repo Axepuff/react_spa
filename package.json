@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Axepuff/react_spa#readme",
   "dependencies": {
+    "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-day-picker": "^7.1.9",
