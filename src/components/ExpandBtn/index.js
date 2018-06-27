@@ -4,7 +4,7 @@ import './ExpandBtn.css'
 export default function ExpandBtn(props) {
   return (
     <button className = 'expand-btn' onClick = {props.toggleOpen}>
-      Календарь
+      {props.isOpen ? `- ${props.txt} -` : `+ ${props.txt} +`}
     </button>
   )
 }

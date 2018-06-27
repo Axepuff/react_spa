@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Point from '../Point/Point'
+import Point from '../Point/'
 import './PointList.css'
 import Accordeon from '../../decorators/Accordeon';
 

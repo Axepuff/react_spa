@@ -1,6 +1,6 @@
 import  React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import ExpandBtn from './ExpandBtn'
+import ExpandBtn from './../ExpandBtn'
 import Opener from '../../decorators/opener'
 import Calendar from './Calendar'
 import './Header.css'
@@ -16,7 +16,7 @@ class Header extends Component  {
           classNames = 'fade'>
             <div>{this.getCalendar()}</div>
         </CSSTransition>
-        <ExpandBtn toggleOpen = {this.props.toggleOpen}/>
+        <ExpandBtn toggleOpen = {this.props.toggleOpen} isOpen = {this.props.isOpen} txt = 'Календарь'/>
       </header>
     )
   }
