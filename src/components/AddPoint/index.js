@@ -1,11 +1,13 @@
 import  React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import {connect} from 'react-redux'
 import ExpandBtn from '../ExpandBtn'
+import {increment} from '../../AC'
 import Form from './Form'
 import Opener from '../../decorators/opener'
 import './addPoint.css'
 
-class Header extends Component  {
+class AddPoint extends Component  {
   render() {
     return (
       <div className = 'add-btn'>
@@ -17,8 +19,14 @@ class Header extends Component  {
             <div>{this.getForm()}</div>
         </CSSTransition>
         <ExpandBtn toggleOpen = {this.props.toggleOpen} isOpen = {this.props.isOpen} txt = 'Добавить точку'/>
+        <div>{this.props.counter}</div>
+        <button onClick = {this.handleIncrement}>+++</button>
       </div>
     )
+  }
+
+  handleIncrement = () => {
+    this.props.increment()
   }
 
   getForm() {
@@ -28,4 +36,6 @@ class Header extends Component  {
 
 }
 
-export default Opener(Header)
+export default connect(state => ({
+    counter: state.count
+  }), { increment })((Opener(AddPoint)))
