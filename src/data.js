@@ -1,4 +1,4 @@
-export let data = [
+export const data = [
   {
     'id': "56c782f18990ecf954f6e027",
     'name': 'Дербент',

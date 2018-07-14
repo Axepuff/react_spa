@@ -12,7 +12,7 @@ export default function App() {
     <Provider store = {store}>
       <AppContainer>
         <Header/>
-        <PointList points = {data}/>
+        <PointList/>
         <AddPoint/>
       </AppContainer>
     </Provider>

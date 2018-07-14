@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export default (Original) => class Accordeon extends Component {
+export default (Original) => class accordeon extends Component {
   state = {
     openId: null
   }

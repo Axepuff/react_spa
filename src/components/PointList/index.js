@@ -1,24 +1,23 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import store from '../../store'
 import Point from '../Point/'
 import './PointList.css'
-import Accordeon from '../../decorators/Accordeon';
+import accordeon from '../../decorators/Accordeon'
+import {connect} from 'react-redux'
 
 class PointList  extends Component {
   static propTypes = {
-      points: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          address: PropTypes.string.isRequired,
-          details: PropTypes.string
-        }).isRequired
-      ),
-      openId: PropTypes.string
+    //from connect
+    points: PropTypes.array.isRequired,
+    //from accordeon
+    openId: PropTypes.string
   }
 
   render () {
-    const pointsElements = this.props.points.map(el => 
+    const {points} = this.props
+    console.log(this.props)
+    const pointsElements = points.map(el => 
         <Point 
           key = {el.id}
           point = {el}
@@ -39,4 +38,13 @@ class PointList  extends Component {
   }
 }
 
-export default Accordeon(PointList)
+function mapStateToProps(state) {
+  return {
+    points: state.points
+  }
+}
+
+// export default connect(({points}) => ({points}))(accordeon(PointList))
+export default connect(state => {
+  return {points: state.points}
+})(accordeon(PointList))

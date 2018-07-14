@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import {deletePoint} from '../../AC'
 import './Point.css'
 
 class Point extends Component {
@@ -26,6 +28,9 @@ class Point extends Component {
           <button  className='point__button' onClick = {toggleOpen}>
             {isOpen ? '–' : '+'}
           </button>
+          <button  className='point__button point__button_del' onClick = {this.handleDelete}>
+            -
+          </button>
         </div>
         <CSSTransition
           in = {this.props.isOpen}
@@ -39,13 +44,14 @@ class Point extends Component {
     )
   }
 
+  handleDelete = () => {
+    const {deletePoint, point} = this.props
+    deletePoint(point.id)
+  }
+
   setPointRef = ref => {
     this.pointView = ref
   }
-
-  // componentDidMount() {
-  //   console.log('---', this.pointView)
-  // }
 
   getBody () {
     if (!this.props.isOpen) {return null}
@@ -55,4 +61,4 @@ class Point extends Component {
   }
 }
 
-export default Point
+export default connect(null, { deletePoint })(Point)
