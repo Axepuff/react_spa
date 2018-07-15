@@ -16,13 +16,13 @@ class PointList  extends Component {
 
   render () {
     const {points} = this.props
-    console.log(this.props)
     const pointsElements = points.map(el => 
         <Point 
           key = {el.id}
           point = {el}
           isOpen = {el.id === this.props.accordeon.openId}
           toggleOpen = {this.props.accordeon.toggleItem(el.id)}
+          dateRange = {this.props.dateRange}
         />
     )
     
@@ -38,13 +38,5 @@ class PointList  extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    points: state.points
-  }
-}
-
 // export default connect(({points}) => ({points}))(accordeon(PointList))
-export default connect(state => {
-  return {points: state.points}
-})(accordeon(PointList))
+export default connect(({points, dateRange}) => ({points, dateRange}))(accordeon(PointList))

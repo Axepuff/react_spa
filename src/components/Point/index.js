@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import {deletePoint} from '../../AC'
+import Dates from './Dates'
 import './Point.css'
 
 class Point extends Component {
@@ -56,8 +57,10 @@ class Point extends Component {
   getBody () {
     if (!this.props.isOpen) {return null}
     const {point} = this.props
-    return <div className='point__detail'>{point.details}</div>
-
+    return <div className='point__detail'>
+      <div className='point__detail-row'>{point.details}</div>
+      <div className='point__detail-row'><Dates dateRange = {this.props.dateRange}/></div>
+    </div>
   }
 }
 

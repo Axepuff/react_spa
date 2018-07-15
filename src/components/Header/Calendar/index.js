@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import DayPicker, { DateUtils } from 'react-day-picker'
-import MomentLocaleUtils from 'react-day-picker/moment';
+import MomentLocaleUtils from 'react-day-picker/moment'
+import {setDate} from '../../../AC'
 import 'react-day-picker/lib/style.css'
 import './Calendar.css'
 
-export default class Calendar extends Component {
+class Calendar extends Component {
   state = {
     from: null,
     to: null
@@ -37,8 +39,11 @@ export default class Calendar extends Component {
   }
 
   handleDayClick = (day) => {
+    const {setDate} = this.props
     const range = DateUtils.addDayToRange(day, this.state)
+    console.log(range)
     this.setState(range)
+    setDate(range)
   }
 
   handleResetClick = () => {
@@ -48,6 +53,6 @@ export default class Calendar extends Component {
   clickDay = (day) => {
     this.setState({selectedDay: day})
   }
-
-
 }
+
+export default connect(null, {setDate})(Calendar)
