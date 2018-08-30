@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import MomentLocaleUtils from 'react-day-picker/moment'
-import {setDate} from '../../../AC'
+import {setDate} from '../../AC'
 import 'react-day-picker/lib/style.css'
 import './Calendar.css'
 
@@ -41,7 +41,7 @@ class Calendar extends Component {
   handleDayClick = (day) => {
     const {setDate} = this.props
     const range = DateUtils.addDayToRange(day, this.state)
-    console.log(range)
+    // console.log(range)
     this.setState(range)
     setDate(range)
   }

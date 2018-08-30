@@ -1,0 +1,16 @@
+{
+  "eslint.enable": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  "workbench.colorTheme": "Monokai Dimmed",
+  "window.zoomLevel": 0,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.matchBrackets": true,
+  "editor.snippetSuggestions": "top",
+  "editor.detectIndentation": false,
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.rendererType": "dom",
+}

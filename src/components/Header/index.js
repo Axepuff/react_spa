@@ -2,7 +2,7 @@ import  React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import ExpandBtn from './../ExpandBtn'
 import Opener from '../../decorators/opener'
-import Calendar from './Calendar'
+import Calendar from '../Calendar'
 import './Header.css'
 
 class Header extends Component  {
