@@ -1,7 +1,10 @@
 import React from 'react'
+import { PropTypes } from "prop-types";
 import { connect } from 'react-redux'
 import { filterDate } from '../../AC'
 import './filter.css'
+
+
 
 const Filter = function(props) {
   const { filterDate, dateRange } = props
@@ -22,6 +25,11 @@ const Filter = function(props) {
       <div>по {dateRange.to ? dateRange.to.toLocaleDateString() : '--'}</div>
     </div>
   )
+}
+
+Filter.propTypes = {
+  from: PropTypes.instanceOf(Date),
+  to: PropTypes.instanceOf(Date),
 }
 
 export default connect(({points, dateRange}) => ({points, dateRange}), {filterDate})(Filter)

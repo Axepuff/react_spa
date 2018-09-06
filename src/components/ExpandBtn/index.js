@@ -1,5 +1,12 @@
 import React from "react"
+import { PropTypes } from "prop-types";
 import './ExpandBtn.css'
+
+ExpandBtn.propTypes = {
+  toggleOpen: PropTypes.func,
+  isOpen: PropTypes.bool,
+  txt: PropTypes.string,
+}
 
 export default function ExpandBtn(props) {
   return (
