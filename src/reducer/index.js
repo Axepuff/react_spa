@@ -6,9 +6,9 @@ import filterDate from './filterDate'
 import dateRangeReducer from './dateRange'
 
 export default combineReducers({
-  count: count,
+  count,
   points,
   // selected: selectReducer,
   dateRange: dateRangeReducer,
-  filterDate: filterDate
+  filterDate,
 })

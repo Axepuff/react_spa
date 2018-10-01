@@ -1,27 +1,32 @@
 import React from 'react'
-import { PropTypes } from "prop-types";
+import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { filterDate } from '../../AC'
 import './filter.css'
 
 
-
-const Filter = function(props) {
+const Filter = function (props) {
   const { filterDate, dateRange } = props
 
-  let handleFilterClick = () => {
+  const handleFilterClick = () => {
     // console.log(range)
-    
+
     filterDate(dateRange)
   }
 
-  return(
-    <div className='filter'>
-      <button className='filter__btn' onClick={handleFilterClick}>
+  return (
+    <div className="filter">
+      <button className="filter__btn" onClick={handleFilterClick}>
         {props.txt ? props.txt : 'фильтр'}
       </button>
-      <div>с {dateRange.from ? dateRange.from.toLocaleDateString() : '--'}</div>
-      <div>по {dateRange.to ? dateRange.to.toLocaleDateString() : '--'}</div>
+      <div>
+с
+        {dateRange.from ? dateRange.from.toLocaleDateString() : '--'}
+      </div>
+      <div>
+по
+        {dateRange.to ? dateRange.to.toLocaleDateString() : '--'}
+      </div>
     </div>
   )
 }
@@ -31,4 +36,4 @@ Filter.propTypes = {
   to: PropTypes.instanceOf(Date),
 }
 
-export default connect(({points, dateRange}) => ({points, dateRange}), {filterDate})(Filter)
+export default connect(({ points, dateRange }) => ({ points, dateRange }), { filterDate })(Filter)

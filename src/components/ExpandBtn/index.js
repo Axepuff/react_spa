@@ -1,5 +1,5 @@
-import React from "react"
-import { PropTypes } from "prop-types";
+import React from 'react'
+import { PropTypes } from 'prop-types'
 import './ExpandBtn.css'
 
 ExpandBtn.propTypes = {
@@ -10,7 +10,7 @@ ExpandBtn.propTypes = {
 
 export default function ExpandBtn(props) {
   return (
-    <button className = 'expand-btn' onClick = {props.toggleOpen}>
+    <button className="expand-btn" onClick={props.toggleOpen}>
       {props.isOpen ? `- ${props.txt} -` : `+ ${props.txt} +`}
     </button>
   )

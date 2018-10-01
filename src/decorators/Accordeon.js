@@ -1,23 +1,23 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
-export default (Original) => class accordeon extends Component {
+export default Original => class accordeon extends Component {
   state = {
-    openId: null
+    openId: null,
   }
 
   render() {
-    return <Original {...this.props} accordeon = {{...this.state, toggleItem: this.toggleItem}} />
+    return <Original {...this.props} accordeon={{ ...this.state, toggleItem: this.toggleItem }} />
   }
 
-  toggleItem = PointId => ev => {
+  toggleItem = PointId => (ev) => {
     ev && ev.preventDefault && ev.preventDefault()
     if (this.state.openId === PointId) {
       this.setState({
-        openId: null
+        openId: null,
       })
     } else {
       this.setState({
-        openId: PointId
+        openId: PointId,
       })
     }
   }

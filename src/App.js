@@ -1,5 +1,5 @@
 import React from 'react'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 import AppContainer from './components/AppContainer'
 import PointList from './components/PointList'
 import Filter from './components/Filter'
@@ -9,12 +9,12 @@ import store from './store'
 
 export default function App() {
   return (
-    <Provider store = {store}>
+    <Provider store={store}>
       <AppContainer>
-        <Header/>
-        <Filter txt='по дате'/>
-        <PointList/>
-        <AddPoint/>
+        <Header />
+        <Filter txt="по дате" />
+        <PointList />
+        <AddPoint />
       </AppContainer>
     </Provider>
   )
