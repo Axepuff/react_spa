@@ -8,9 +8,11 @@
   "editor.matchBrackets": true,
   "editor.snippetSuggestions": "top",
   "editor.detectIndentation": false,
+  // "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
   "files.associations": {
     "*.css": "postcss"
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.rendererType": "dom",
+  "terminal.integrated.rendererType": "dom"
 }

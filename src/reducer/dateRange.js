@@ -1,5 +1,4 @@
 import { SET_DATE } from '../constants'
-import { data as points } from '../data'
 
 export default (date = { from: null, to: null }, action) => {
   const { type } = action
@@ -8,6 +7,7 @@ export default (date = { from: null, to: null }, action) => {
       const { from, to } = action.payload.date
       return { from, to }
     }
+    default: break
   }
   return date
 }
