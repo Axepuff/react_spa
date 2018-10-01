@@ -11,7 +11,6 @@ const Filter = function(props) {
 
   let handleFilterClick = () => {
     // console.log(range)
-    console.log('filterDate(range)', filterDate(dateRange))
     
     filterDate(dateRange)
   }

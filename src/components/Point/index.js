@@ -59,7 +59,7 @@ class Point extends Component {
     const {point} = this.props
     return <div className='point__detail'>
       <div className='point__detail-row'>{point.details}</div>
-      <div className='point__detail-row'><Dates dateRange = {this.props.dateRange}/></div>
+      <div className='point__detail-row'><Dates pointDate = {point.date}/></div>
     </div>
   }
 }
