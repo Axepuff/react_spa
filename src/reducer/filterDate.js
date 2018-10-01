@@ -7,12 +7,15 @@ export default (defaultPoints = points, action) => {
 
   switch (type) {
     case FILTER_BY_DATE: {
-      
+      // console.log('payload', payload);
+      // console.log('defaultPoints', defaultPoints);
       return defaultPoints.filter(point => {
-        if (!point.dateRange) {
+        if (!point.date) {
           return false
         }
-        return point.dateRange.from > payload.from && point.dateRange.to < payload.to
+        const from = new Date(point.date.from)
+        const to = new Date(point.date.to)
+        return from > payload.date.from && to < payload.date.to
       })
     }
   }

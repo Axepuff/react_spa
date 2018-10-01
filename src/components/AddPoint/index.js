@@ -11,13 +11,7 @@ class AddPoint extends Component  {
   render() {
     return (
       <div className = 'add-btn'>
-        <CSSTransition
-          in = {this.props.isOpen}
-          timeout = {300}
-          appear
-          classNames = 'fade'>
-            <div>{this.getForm()}</div>
-        </CSSTransition>
+        <Form/>
         <ExpandBtn toggleOpen = {this.props.toggleOpen} isOpen = {this.props.isOpen} txt = 'Добавить точку'/>
         {/* <div>{this.props.counter}</div>
         <button onClick = {this.handleIncrement}>+++</button> */}
@@ -30,14 +24,9 @@ class AddPoint extends Component  {
     increment()
   }
 
-  getForm() {
-    if (!this.props.isOpen) {return null}
-    return <Form/>
-  }
-
 }
 
 export default connect(state => {
   return ({
     counter: state.count
-  })}, { increment })((Opener(AddPoint)))
+  })}, { increment })(AddPoint)

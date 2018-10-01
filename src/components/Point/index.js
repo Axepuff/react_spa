@@ -25,12 +25,12 @@ class Point extends Component {
       <div className='point' ref = {this.setPointRef}>
         <div className='point__main'>
           <span className='point__name'>{point.name}</span>
-          <span className='point__address'>{point.address}</span>
+          <div className='point__detail-row'><Dates pointDate = {point.date}/></div>
           <button  className='point__button' onClick = {toggleOpen}>
-            {isOpen ? '–' : '+'}
+            {isOpen ? 'скрыть подробности' : 'подробности'}
           </button>
           <button  className='point__button point__button_del' onClick = {this.handleDelete}>
-            -
+            ×
           </button>
         </div>
         <CSSTransition
@@ -58,8 +58,8 @@ class Point extends Component {
     if (!this.props.isOpen) {return null}
     const {point} = this.props
     return <div className='point__detail'>
+      <div className='point__detail-row'>{point.address}</div>
       <div className='point__detail-row'>{point.details}</div>
-      <div className='point__detail-row'><Dates pointDate = {point.date}/></div>
     </div>
   }
 }

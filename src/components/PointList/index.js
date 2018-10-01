@@ -15,8 +15,10 @@ class PointList  extends Component {
   }
 
   render () {
-    const {points} = this.props
-    const pointsElements = points.map(el => 
+    const {points, filterDate} = this.props
+    const pointsElements = points
+      .filter(point => filterDate.find(filteredPoint => filteredPoint.id === point.id))
+      .map(el => 
         <Point 
           key = {el.id}
           point = {el}
@@ -39,4 +41,4 @@ class PointList  extends Component {
 }
 
 // export default connect(({points}) => ({points}))(accordeon(PointList))
-export default connect(({points, dateRange}) => ({points, dateRange}))(accordeon(PointList))
+export default connect(({points, dateRange, filterDate}) => ({points, dateRange, filterDate}))(accordeon(PointList))

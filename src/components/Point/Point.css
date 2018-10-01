@@ -12,9 +12,11 @@
   }
   &__button {
     height: 1.5rem;
-    width: 1.5rem;
     cursor: pointer;
     margin: 0 0.5rem;
+    &_del {
+      color: red;
+    }
   }
   &__detail {
     margin-top: 1rem;
