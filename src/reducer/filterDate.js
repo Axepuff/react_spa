@@ -1,5 +1,5 @@
 import { FILTER_BY_DATE } from '../constants'
-import { data as points } from '../data'
+import { points } from '../data'
 
 export default (defaultPoints = points, action) => {
   const { type, payload } = action

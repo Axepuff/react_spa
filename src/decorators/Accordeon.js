@@ -5,13 +5,10 @@ export default Original => class accordeon extends Component {
     openId: null,
   }
 
-  render() {
-    return <Original {...this.props} accordeon={{ ...this.state, toggleItem: this.toggleItem }} />
-  }
-
   toggleItem = PointId => (ev) => {
     ev && ev.preventDefault && ev.preventDefault()
-    if (this.state.openId === PointId) {
+    const { openId } = this.state
+    if (openId === PointId) {
       this.setState({
         openId: null,
       })
@@ -20,5 +17,9 @@ export default Original => class accordeon extends Component {
         openId: PointId,
       })
     }
+  }
+
+  render() {
+    return <Original {...this.props} accordeon={{ ...this.state, toggleItem: this.toggleItem }} />
   }
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { deletePoint } from '../../AC'
+import CommentsList from '../CommentsList'
 import Dates from './Dates'
 import './Point.css'
 
@@ -16,6 +17,27 @@ class Point extends Component {
     }).isRequired,
     isOpen: PropTypes.bool,
     toggleOpen: PropTypes.func,
+  }
+
+  setPointRef = (ref) => {
+    this.pointView = ref
+  }
+
+  getBody() {
+    const { isOpen, point } = this.props
+    if (!isOpen) { return null }
+    return (
+      <div className="point__detail">
+        <div className="point__detail-row">{point.address}</div>
+        <div className="point__detail-row">{point.details}</div>
+        <CommentsList point={point} />
+      </div>
+    )
+  }
+
+  handleDelete = () => {
+    const { deletePoint, point } = this.props
+    deletePoint(point.id)
   }
 
   render() {
@@ -34,7 +56,7 @@ class Point extends Component {
           </button>
         </div>
         <CSSTransition
-          in={this.props.isOpen}
+          in={isOpen}
           key={point.id}
           timeout={300}
           appear
@@ -42,26 +64,6 @@ class Point extends Component {
         >
           <div>{this.getBody()}</div>
         </CSSTransition>
-      </div>
-    )
-  }
-
-  handleDelete = () => {
-    const { deletePoint, point } = this.props
-    deletePoint(point.id)
-  }
-
-  setPointRef = (ref) => {
-    this.pointView = ref
-  }
-
-  getBody() {
-    if (!this.props.isOpen) { return null }
-    const { point } = this.props
-    return (
-      <div className="point__detail">
-        <div className="point__detail-row">{point.address}</div>
-        <div className="point__detail-row">{point.details}</div>
       </div>
     )
   }

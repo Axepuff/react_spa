@@ -7,11 +7,11 @@ export default function Dates(props) {
   return (
     <div className="dates">
       <div>
-с
+с&nbsp;
         {pointDate.from ? new Date(pointDate.from).toLocaleDateString() : 'выберите дату прибытия'}
       </div>
       <div>
-по
+по&nbsp;
         {pointDate.to ? new Date(pointDate.to).toLocaleDateString() : 'выбери дату отбытия'}
       </div>
     </div>
@@ -19,6 +19,5 @@ export default function Dates(props) {
 }
 
 Dates.propTypes = {
-  from: PropTypes.instanceOf(Date),
-  to: PropTypes.instanceOf(Date),
+  pointDate: PropTypes.object,
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import filtratePoints from '../selectors'
 import Point from '../Point'
@@ -28,11 +28,11 @@ function PointList(props) {
 
 PointList.propTypes = {
   // from connect
-  points: PropTypes.array.isRequired,
+  points: propTypes.array.isRequired,
   // from accordeon
-  accordeon: PropTypes.shape({
-    openId: PropTypes.string,
-    toggleItem: PropTypes.func,
+  accordeon: propTypes.shape({
+    openId: propTypes.string,
+    toggleItem: propTypes.func,
   }),
 }
 

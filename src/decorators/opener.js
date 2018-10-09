@@ -10,10 +10,11 @@ const Opener = Original => class OpenerWrapper extends ReactComponent {
   }
 
   toggleOpen = (event) => {
-    event && event.preventDefault && event.preventDefault()
+    const { isOpen } = this.state
+    if (event && event.preventDefault) event.preventDefault()
 
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpen: !isOpen,
     })
   }
 }

@@ -1,4 +1,4 @@
-import { data as defaultPoints } from '../data'
+import { points as defaultPoints } from '../data'
 import { DELETE_POINT } from '../constants'
 
 export default (pointState = defaultPoints, action) => {
