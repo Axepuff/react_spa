@@ -1,7 +1,28 @@
 import React from 'react'
+import propTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-export default function Comment({ id }) {
+function Comment({ comment }) {
   return (
-    <div>{id}</div>
+    <div>
+      <p>
+        {comment.text}
+написал
+        {' '}
+        {comment.user}
+      </p>
+    </div>
   )
 }
+
+Comment.propTypes = {
+  // id: propTypes.string.isRequired,
+  comment: propTypes.shape({
+    text: propTypes.string.isRequired,
+    user: propTypes.string.isRequired,
+  }).isRequired,
+}
+
+export default connect((state, ownProps) => ({
+  comment: state.comments.find(comment => comment.id === ownProps.id),
+}))(Comment)

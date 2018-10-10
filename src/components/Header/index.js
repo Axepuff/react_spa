@@ -1,30 +1,39 @@
 import React, { Component } from 'react'
 import { CSSTransition } from 'react-transition-group'
+import propTypes from 'prop-types'
 import ExpandBtn from '../ExpandBtn'
 import Opener from '../../decorators/opener'
 import Calendar from '../Calendar'
 import './Header.css'
 
 class Header extends Component {
+  static propTypes = {
+    isOpen: propTypes.bool,
+    toggleOpen: propTypes.func,
+  }
+
+  getCalendar() {
+    const { isOpen } = this.props
+
+    if (!isOpen) { return null }
+    return <Calendar />
+  }
+
   render() {
+    const { isOpen, toggleOpen } = this.props
     return (
       <header className="header">
         <CSSTransition
-          in={this.props.isOpen}
+          in={isOpen}
           timeout={300}
           appear
           classNames="fade"
         >
           <div>{this.getCalendar()}</div>
         </CSSTransition>
-        <ExpandBtn toggleOpen={this.props.toggleOpen} isOpen={this.props.isOpen} txt="Календарь" />
+        <ExpandBtn toggleOpen={toggleOpen} isOpen={isOpen} txt="Календарь" />
       </header>
     )
-  }
-
-  getCalendar() {
-    if (!this.props.isOpen) { return null }
-    return <Calendar />
   }
 }
 

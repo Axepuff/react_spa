@@ -15,6 +15,8 @@ export default (defaultPoints = points, action) => {
         return from > payload.date.from && to < payload.date.to
       })
     }
+    default:
+      break
   }
   return defaultPoints
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import propTypes from 'prop-types'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import Comment from '../Comment'
+import ExpandBtn from '../ExpandBtn'
 import opener from '../../decorators/opener'
 
 
@@ -13,23 +14,27 @@ class CommentsList extends Component {
     toggleOpen: propTypes.func,
   }
 
-  getBody({ point: comments = [] }) {
-    const { isOpen } = this.props
+  getBody() {
+    const { isOpen, point } = this.props
+    const { comments } = point
     if (!isOpen) { return null }
     if (!comments.length) { return null }
     return (
-      <ul>
-        {comments.map(com => <li><Comment id={com.id} /></li>)}
-      </ul>
+      <div>
+        <h3>Комментарии</h3>
+        <ul>
+          {comments.map(id => <li key={id}><Comment id={id} /></li>)}
+        </ul>
+      </div>
     )
   }
 
   render() {
-    const { isOpen, toggleOpen, point } = this.props
+    const { isOpen, toggleOpen } = this.props
     return (
       <div>
-        <button type="button" onClick={toggleOpen}>Показать комментарии</button>
-        {this.getBody(point, isOpen)}
+        {this.getBody()}
+        <ExpandBtn type="button" toggleOpen={toggleOpen} isOpen={isOpen} txt="Комментарии" />
       </div>
     )
   }
