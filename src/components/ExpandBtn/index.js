@@ -4,9 +4,10 @@ import './ExpandBtn.css'
 
 
 export default function ExpandBtn(props) {
+  const { isOpen, txt, toggleOpen } = props
   return (
-    <button type="button" className="expand-btn" onClick={props.toggleOpen}>
-      {props.isOpen ? `- ${props.txt} -` : `+ ${props.txt} +`}
+    <button type="button" className="expand-btn" onClick={toggleOpen}>
+      {isOpen ? `- ${txt} -` : `+ ${txt} +`}
     </button>
   )
 }

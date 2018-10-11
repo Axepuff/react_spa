@@ -1,7 +1,7 @@
 import React from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
-import filtratePoints from '../selectors'
+import { filtratePointsSelector } from '../selectors'
 import Point from '../Point'
 import './PointList.css'
 import accordeon from '../../decorators/accordeon'
@@ -37,4 +37,6 @@ PointList.propTypes = {
 }
 
 // export default connect(({points}) => ({points}))(accordeon(PointList))
-export default connect(state => ({ points: filtratePoints(state) }))(accordeon(PointList))
+export default connect(state => ({
+  points: filtratePointsSelector(state),
+}))(accordeon(PointList))

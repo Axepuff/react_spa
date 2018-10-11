@@ -17,9 +17,9 @@ export default class Form extends Component {
   render() {
     const { pointName } = this.state
     return (
-      <div className="form-wrapper">
+      <form className="form-wrapper">
         <input type="text" value={pointName} onChange={this.handleName} />
-      </div>
+      </form>
     )
   }
 }
