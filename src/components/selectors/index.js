@@ -12,7 +12,7 @@ export const filtratePointsSelector = createSelector(
     .filter(point => filterDate.find(filteredPoint => filteredPoint.id === point.id)),
 )
 
-export const commentsSelector = createSelector(
+export const commentsSelectorFactory = () => createSelector(
   commentsGetter,
   idGetter,
   (comments, id) => comments.find(comment => comment.id === id),

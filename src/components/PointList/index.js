@@ -36,6 +36,7 @@ PointList.propTypes = {
   }),
 }
 
+
 // export default connect(({points}) => ({points}))(accordeon(PointList))
 export default connect(state => ({
   points: filtratePointsSelector(state),
