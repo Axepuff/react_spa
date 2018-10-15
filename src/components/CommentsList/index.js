@@ -3,7 +3,9 @@ import propTypes from 'prop-types'
 // import { connect } from 'react-redux'
 import Comment from '../Comment'
 import ExpandBtn from '../ExpandBtn'
+import CommentForm from '../CommentForm'
 import opener from '../../decorators/opener'
+import './CommentsList.css'
 
 
 /* eslint-disable react/prefer-stateless-function */
@@ -22,9 +24,10 @@ class CommentsList extends Component {
     return (
       <div>
         <h3>Комментарии</h3>
-        <ul>
+        <ul className="comments-list">
           {comments.map(id => <li key={id}><Comment id={id} /></li>)}
         </ul>
+        <CommentForm />
       </div>
     )
   }

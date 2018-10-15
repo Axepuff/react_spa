@@ -47,7 +47,7 @@ class Point extends Component {
       <div className="point" ref={this.setPointRef}>
         <div className="point__main">
           <span className="point__name">{point.name}</span>
-          <div className="point__detail-row"><Dates pointDate={point.date} /></div>
+          <div className="point__date"><Dates pointDate={point.date} /></div>
           <button type="button" className="point__button" onClick={toggleOpen}>
             {isOpen ? 'скрыть подробности' : 'подробности'}
           </button>

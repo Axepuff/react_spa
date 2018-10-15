@@ -21,6 +21,9 @@
   &__detail {
     margin-top: 1rem;
   }
+  &__detail-row {
+    margin-bottom: 1rem;
+  }
 }
 
 

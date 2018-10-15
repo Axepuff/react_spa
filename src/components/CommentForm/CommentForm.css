@@ -1,0 +1,10 @@
+.comment-form {
+  padding: 1rem 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  &__input {
+    &_wrong {
+      color: red;
+    }
+  }
+}
