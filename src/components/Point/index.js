@@ -17,6 +17,7 @@ class Point extends Component {
     }).isRequired,
     isOpen: PropTypes.bool,
     toggleOpen: PropTypes.func,
+    delPointHandler: PropTypes.func,
   }
 
   setPointRef = (ref) => {
@@ -36,8 +37,8 @@ class Point extends Component {
   }
 
   handleDelete = () => {
-    const { deletePoint, point } = this.props
-    deletePoint(point.id)
+    const { delPointHandler, point } = this.props
+    delPointHandler(point.id)
   }
 
   render() {
@@ -51,9 +52,7 @@ class Point extends Component {
           <button type="button" className="point__button" onClick={toggleOpen}>
             {isOpen ? 'скрыть подробности' : 'подробности'}
           </button>
-          <button type="button" className="point__button point__button_del" onClick={this.handleDelete}>
-            ×
-          </button>
+          <button type="button" className="point__button point__button_del" onClick={this.handleDelete}>x</button>
         </div>
         <CSSTransition
           in={isOpen}
@@ -69,4 +68,4 @@ class Point extends Component {
   }
 }
 
-export default connect(null, { deletePoint })(Point)
+export default connect(null, { delPointHandler: deletePoint })(Point)

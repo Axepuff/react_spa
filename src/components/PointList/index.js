@@ -7,7 +7,7 @@ import './PointList.css'
 import accordeon from '../../decorators/accordeon'
 
 function PointList(props) {
-  const { points, accordeon: { openId, toggleItem } } = props
+  const { points, children, accordeon: { openId, toggleItem } } = props
   const pointsElements = points
     .map(el => (
       <Point
@@ -21,6 +21,7 @@ function PointList(props) {
 
   return (
     <div className="point-list">
+      {children}
       {pointsElements}
     </div>
   )

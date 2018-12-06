@@ -22,7 +22,7 @@ class CommentsList extends Component {
     if (!isOpen) { return null }
     if (!comments.length) { return null }
     return (
-      <div>
+      <div className="comments-list">
         <h3>Комментарии</h3>
         <ul className="comments-list">
           {comments.map(id => <li key={id}><Comment id={id} /></li>)}

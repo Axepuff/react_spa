@@ -19,7 +19,7 @@ class Calendar extends Component {
     return (
       <div className="calendar-wrapper">
         <DayPicker
-          numberOfMonths={2}
+          numberOfMonths={1}
           localeUtils={MomentLocaleUtils}
           locale="ru"
           className="Selectable"

@@ -11,10 +11,11 @@ export default function App() {
   return (
     <Provider store={store}>
       <AppContainer>
-        <Header />
-        <Filter txt="по дате" />
-        <PointList />
+        <Header>Your trip</Header>
         <AddPoint />
+        <PointList>
+          <Filter txt="по дате" />
+        </PointList>
       </AppContainer>
     </Provider>
   )

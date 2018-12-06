@@ -18,7 +18,7 @@ class AddPoint extends Component {
   render() {
     const { counter } = this.props
     return (
-      <div className="add-btn">
+      <div className="add-point">
         <Form />
         {/* <ExpandBtn toggleOpen={toggleOpen} isOpen={isOpen} txt="Добавить точку" /> */}
         <div>{counter}</div>

@@ -1,4 +1,25 @@
 .app-container {
-  /* display: grid; */
+  display: grid;
   margin: 0 1rem;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "h h"
+    "a a"
+    "p p";
+  @media (width >= 720px) and (width < 1200px) {
+    grid-template-areas: 
+      "h h"
+      "a p"
+      "a p";
+    }
+  @media (width >= 1200px) {
+    // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: 
+      "h h h h h"
+      "a a a p p"
+      "a a a p p";
+    }
 }

@@ -1,4 +1,8 @@
 .header {
   margin: 0.5rem 0;
-  
+  grid-area: h;
+  &__title {
+    color: red;
+    text-align: center;
+  }
 }

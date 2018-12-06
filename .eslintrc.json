@@ -8,6 +8,7 @@
       "import/no-named-as-default-member": 0,
       "quotes": ["error", "single"],
       "react/forbid-prop-types": "disabled",
-      "react/require-default-props": "disabled"
+      "react/require-default-props": "disabled",
+      "linebreak-style": 0
   }
 }

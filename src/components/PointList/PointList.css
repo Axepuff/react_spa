@@ -1,4 +1,5 @@
 .point-list {
   display: grid;
-  // padding: 0 1rem;
+  grid-gap: 0.5rem;
+  grid-area: p;
 }
