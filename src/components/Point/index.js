@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import {
+  FiChevronDown, FiChevronUp, FiX, FiMap,
+} from 'react-icons/fi'
 import { CSSTransition } from 'react-transition-group'
 import { deletePoint } from '../../AC'
 import CommentsList from '../CommentsList'
-import Dates from './Dates'
+import Dates from './Dates.js'
+import Btn from './Btn'
+import Distance from './Distance'
 import './Point.css'
 
 class Point extends Component {
@@ -47,12 +52,12 @@ class Point extends Component {
     return (
       <div className="point" ref={this.setPointRef}>
         <div className="point__main">
-          <span className="point__name">{point.name}</span>
-          <div className="point__date"><Dates pointDate={point.date} /></div>
-          <button type="button" className="point__button" onClick={toggleOpen}>
-            {isOpen ? 'скрыть подробности' : 'подробности'}
-          </button>
-          <button type="button" className="point__button point__button_del" onClick={this.handleDelete}>x</button>
+          <div className="point__name">{point.name}</div>
+          <Distance remote="50">50</Distance>
+          <Btn area="m" theme="primary"><FiMap /></Btn>
+          <Btn area="o" theme="primary" onClick={toggleOpen}>{isOpen ? <FiChevronUp /> : <FiChevronDown />}</Btn>
+          <Btn area="c" theme="danger" onClick={this.handleDelete}><FiX /></Btn>
+          <Dates pointDate={point.date} />
         </div>
         <CSSTransition
           in={isOpen}

@@ -1,13 +1,25 @@
+
 .point {
   border: 1px solid black;
-  padding: 1rem;
+  padding: 1rem 0 1rem 1rem;
   &__main {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-rows: repeat(2, 2rem);
+    grid-template-areas: 
+      "n d m c dat"
+      "n o o . dat";
   }
-  &__name,
-  .point__adress {
+  &__adress {
     margin: 0 0.5rem;
+  }
+  &__name {
+    grid-area: n;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
   }
   &__button {
     height: 1.5rem;
@@ -18,7 +30,7 @@
     }
   }
   &__detail {
-    margin-top: 1rem;
+    padding-top: 1rem;
   }
   &__detail-row {
     margin-bottom: 1rem;
